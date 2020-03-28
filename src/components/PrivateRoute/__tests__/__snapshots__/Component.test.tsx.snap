@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrivateRoute component Is match snapshot 1`] = `
+<Route
+  exact={true}
+  path="/"
+  render={[Function]}
+/>
+`;

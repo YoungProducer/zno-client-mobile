@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppBar component Is match snapshot 1`] = `
+<Fragment>
+  <CssBaseline />
+  <WithStyles(ForwardRef(AppBar))
+    className="root"
+    position="static"
+  >
+    <WithStyles(ForwardRef(Container))
+      className="container"
+      maxWidth="lg"
+    >
+      <NavigationLink
+        className="navlink"
+        data-testid="home-navlink"
+        navLink={
+          Object {
+            "to": "/",
+          }
+        }
+      >
+        Головна
+      </NavigationLink>
+      <NavigationLink
+        className="navlink"
+        data-testid="tests-navlink"
+        navLink={
+          Object {
+            "to": "/subject-selection",
+          }
+        }
+      >
+        Тести
+      </NavigationLink>
+    </WithStyles(ForwardRef(Container))>
+  </WithStyles(ForwardRef(AppBar))>
+</Fragment>
+`;

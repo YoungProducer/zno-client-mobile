@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "ProductSans-Light";
+    src: url("../fonts/ProductSans-Light.eot"); /* IE9 Compat Modes */
+    src: url("../fonts/ProductSans-Light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("../fonts/ProductSans-Light.otf") format("opentype"), /* Open Type Font */
+      url("../fonts/ProductSans-Light.svg") format("svg"), /* Legacy iOS */
+      url("../fonts/ProductSans-Light.ttf") format("truetype"), /* Safari, Android, iOS */
+      url("../fonts/ProductSans-Light.woff") format("woff"), /* Modern Browsers */
+      url("../fonts/ProductSans-Light.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+  }

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component Is match snapshot 1`] = `
+<WithStyles(ForwardRef(InputBase))
+  className="makeStyles-root-1"
+  endAdornment={
+    <WithStyles(ForwardRef(Tooltip))
+      aria-label="helper-text"
+      classes={
+        Object {
+          "tooltip": "makeStyles-tooltip-6",
+        }
+      }
+      data-testid="input-tooltip"
+      placement="top-end"
+      title="foo"
+    >
+      <Memo(ErrorIcon)
+        className="makeStyles-helperIcon-4"
+        data-testid="error-icon"
+      />
+    </WithStyles(ForwardRef(Tooltip))>
+  }
+  inputProps={
+    Object {
+      "className": "makeStyles-input-3",
+    }
+  }
+/>
+`;

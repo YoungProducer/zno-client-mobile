@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubjectConfigurationModal component Is match snapshot 1`] = `
+<Component
+  aria-describedby=""
+  aria-labelledby="subject-config-title"
+>
+  <div
+    className="makeStyles-dialogHeader-4"
+  >
+    <WithStyles(ForwardRef(IconButton))
+      className="makeStyles-homeIcon-10"
+      onClick={[Function]}
+    >
+      <HomeOutlinedIcon
+        className="makeStyles-icon-9"
+      />
+    </WithStyles(ForwardRef(IconButton))>
+    <WithStyles(ForwardRef(Typography))
+      className="makeStyles-subjectName-6"
+      variant="h6"
+    >
+      foo
+    </WithStyles(ForwardRef(Typography))>
+  </div>
+  <div
+    className="makeStyles-selectionBlock-5"
+  >
+    <WithStyles(Component)
+      id="subject-config-title"
+    >
+      Налаштування тесту
+    </WithStyles(Component)>
+    <WithStyles(WithStyles(ForwardRef(DialogContent)))>
+      <WithStyles(ForwardRef(FormControl))
+        className="makeStyles-block-1"
+        component="fieldset"
+      >
+        <WithStyles(ForwardRef(FormLabel))
+          component="legend"
+        >
+          Оберіть тип тесту
+        </WithStyles(ForwardRef(FormLabel))>
+        <ForwardRef(RadioGroup)
+          aria-label="select-test-type"
+          data-testid="select-test-type"
+          name="select-test-type"
+          onChange={[Function]}
+          value=""
+        >
+          <WithStyles(ForwardRef(FormControlLabel))
+            control={
+              <WithStyles(ForwardRef(Radio))
+                color="secondary"
+              />
+            }
+            label="Вибір теми"
+            labelPlacement="end"
+            value="Вибір теми"
+          />
+          <WithStyles(ForwardRef(FormControlLabel))
+            control={
+              <WithStyles(ForwardRef(Radio))
+                color="secondary"
+              />
+            }
+            label="Тренувальні варіанти ЗНО"
+            labelPlacement="end"
+            value="Тренувальні варіанти ЗНО"
+          />
+        </ForwardRef(RadioGroup)>
+      </WithStyles(ForwardRef(FormControl))>
+      <Component
+        formControl={
+          Object {
+            "className": "makeStyles-checkBoxRoot-11",
+          }
+        }
+        formControlLabel={
+          Object {
+            "className": "makeStyles-checkBoxLabel-12",
+            "label": "Показувати правильну відповідь під час тесту",
+          }
+        }
+        onChange={[Function]}
+        value={false}
+      />
+    </WithStyles(WithStyles(ForwardRef(DialogContent)))>
+    <WithStyles(WithStyles(ForwardRef(DialogActions)))>
+      <WithStyles(ForwardRef(Button))
+        className="makeStyles-button-7"
+        color="primary"
+        data-testid="go-to-test"
+        disabled={true}
+        onClick={[Function]}
+        variant="contained"
+      >
+        Розпочати тест
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        className="makeStyles-button-7 makeStyles-declineButton-8"
+        color="primary"
+        data-testid="close-subject-conf-button"
+        onClick={[Function]}
+        variant="text"
+      >
+        Скасувати
+      </WithStyles(ForwardRef(Button))>
+    </WithStyles(WithStyles(ForwardRef(DialogActions)))>
+  </div>
+</Component>
+`;

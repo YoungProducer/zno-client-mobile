@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp component Is matches snapshot 1`] = `
+<div
+  className="auth-background"
+>
+  <WithStyles(ForwardRef(Container))
+    className="makeStyles-container-2"
+    maxWidth="lg"
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="makeStyles-root-3"
+      elevation={0}
+      square={true}
+    >
+      <div
+        className="makeStyles-logoContainer-5"
+      >
+        <Component />
+      </div>
+      <div
+        className="makeStyles-innerContainer-4"
+      >
+        <WithStyles(ForwardRef(Grid))
+          alignItems="center"
+          className="makeStyles-block-9"
+          container={true}
+          direction="column"
+          item={true}
+          spacing={3}
+        >
+          <WithStyles(ForwardRef(Grid))
+            item={true}
+          >
+            <Component
+              color="primary"
+              data-testid="signup-email-input"
+              error={false}
+              helperText=""
+              onChange={[Function]}
+              placeholder="Емеїл"
+              startAdornment={
+                <Memo(EmailIcon)
+                  className="makeStyles-icon-12"
+                />
+              }
+              type="email"
+              value=""
+            />
+          </WithStyles(ForwardRef(Grid))>
+          <WithStyles(ForwardRef(Grid))
+            item={true}
+          >
+            <Component
+              color="primary"
+              data-testid="signup-password-input"
+              error={false}
+              helperText=""
+              onChange={[Function]}
+              placeholder="Пароль"
+              startAdornment={
+                <Memo(LockIcon)
+                  className="makeStyles-icon-12"
+                />
+              }
+              type="password"
+              value=""
+            />
+          </WithStyles(ForwardRef(Grid))>
+          <WithStyles(ForwardRef(Grid))
+            item={true}
+          >
+            <Component
+              color="primary"
+              data-testid="signup-conf-password-input"
+              error={false}
+              helperText=""
+              onChange={[Function]}
+              placeholder="Пароль підтвердження"
+              startAdornment={
+                <Memo(LockIcon)
+                  className="makeStyles-icon-12"
+                />
+              }
+              type="password"
+              value=""
+            />
+          </WithStyles(ForwardRef(Grid))>
+          <WithStyles(ForwardRef(Grid))
+            item={true}
+          >
+            <WithStyles(ForwardRef(Button))
+              className="makeStyles-button-10"
+              color="primary"
+              data-testid="signup-button"
+              disableElevation={true}
+              onClick={[Function]}
+              variant="contained"
+            >
+              Зареєструватися
+            </WithStyles(ForwardRef(Button))>
+          </WithStyles(ForwardRef(Grid))>
+          <WithStyles(ForwardRef(Grid))>
+            <WithStyles(ForwardRef(Typography))
+              align="center"
+            >
+              Вже зареєстровані?
+              <NavigationLink
+                className="makeStyles-link-11"
+                navLink={
+                  Object {
+                    "to": "/auth/signin",
+                  }
+                }
+              >
+                Увійти
+              </NavigationLink>
+            </WithStyles(ForwardRef(Typography))>
+          </WithStyles(ForwardRef(Grid))>
+        </WithStyles(ForwardRef(Grid))>
+      </div>
+    </WithStyles(ForwardRef(Paper))>
+  </WithStyles(ForwardRef(Container))>
+</div>
+`;

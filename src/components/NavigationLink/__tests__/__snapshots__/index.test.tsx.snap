@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationLink component Is match snapshot 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(Link))
+    data-testid="navigation-link"
+  >
+    foo
+  </WithStyles(ForwardRef(Link))>
+</Fragment>
+`;

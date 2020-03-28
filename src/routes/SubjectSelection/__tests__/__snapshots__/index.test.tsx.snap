@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubjectSelection route Is match snapshot 1`] = `
+<Fragment>
+  <CssBaseline />
+  <WithStyles(Connect(Component)) />
+</Fragment>
+`;

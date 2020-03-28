@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubjectSelection component Is match snapshot 1`] = `
+<Fragment>
+  <div
+    className="makeStyles-root-1 subject-selection-background"
+  >
+    <WithStyles(ForwardRef(AppBar))
+      className="makeStyles-appBar-11"
+      elevation={0}
+      position="relative"
+    >
+      <WithStyles(ForwardRef(Container))
+        className="makeStyles-appBarContainer-12"
+        maxWidth="lg"
+      >
+        <Component />
+        <div
+          className="makeStyles-appBarContainer-12"
+        >
+          <WithStyles(ForwardRef(Button))
+            className="makeStyles-signInButton-15"
+            onClick={[Function]}
+          >
+            Увійти
+          </WithStyles(ForwardRef(Button))>
+          <WithStyles(ForwardRef(Button))
+            className="makeStyles-signUpButton-14"
+            onClick={[Function]}
+            variant="text"
+          >
+            Зареєструватися
+          </WithStyles(ForwardRef(Button))>
+        </div>
+      </WithStyles(ForwardRef(Container))>
+    </WithStyles(ForwardRef(AppBar))>
+    <WithStyles(ForwardRef(Container))
+      className="makeStyles-container-2"
+      maxWidth="lg"
+    >
+      <div
+        className="makeStyles-actionsBlock-10"
+      >
+        <div
+          className="makeStyles-searchBlock-3"
+        >
+          <WithStyles(ForwardRef(Typography))
+            className="makeStyles-typography-9"
+            variant="h6"
+          >
+            Для того щоб розпочати тест почніть вводити назву предемету у пошуку, після цього ви одразу побачите цей предмет у правому блоці, просто натисніть на нього і ви будете направлені на сторінку тесту.
+          </WithStyles(ForwardRef(Typography))>
+          <WithStyles(ForwardRef(InputBase))
+            className="makeStyles-searchInput-6"
+            endAdornment={
+              <WithStyles(ForwardRef(IconButton))
+                className="makeStyles-iconButton-7"
+                size="small"
+              >
+                <Memo(SearchIcon)
+                  className="makeStyles-icon-8"
+                />
+              </WithStyles(ForwardRef(IconButton))>
+            }
+            onChange={[Function]}
+            placeholder="Знайти предмет"
+            value=""
+          />
+        </div>
+        <Component
+          searchValue=""
+          subjectsList={
+            Array [
+              Object {
+                "id": "foo",
+                "image": "bar",
+                "name": "math",
+              },
+            ]
+          }
+        />
+      </div>
+    </WithStyles(ForwardRef(Container))>
+  </div>
+</Fragment>
+`;
