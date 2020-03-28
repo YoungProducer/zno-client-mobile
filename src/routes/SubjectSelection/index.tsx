@@ -11,7 +11,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 /** Application's imports */
 import SubjectSelection from 'components/SubjectSelection';
-import BottomBar from 'components/BottomBar';
 
 /** Create component */
 const Component = () => (

@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
             minHeight: 70,
             borderRadius: 9,
             background: '#fff',
-            filter: 'drop-shadow(0px 3px 3.5px rgba(0,0,0,0.05))',
+            filter: 'drop-shadow(0px 3px 3.5px rgba(0,0,0,0.16))',
             bottom: theme.spacing(1),
             left: theme.spacing(1),
             right: theme.spacing(1),
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme: Theme) =>
             transform: `translate(-50%, -60%)`,
             borderRadius: '50%',
             background: '#fff',
-            filter: 'drop-shadow(0px 3px 3.5px rgba(0,0,0,0.16))',
+            filter: 'drop-shadow(0px 3px 3.5px rgba(0,0,0,0.05))',
             transition: theme.transitions.create(['transform'], {
                 duration: 200,
                 easing: theme.transitions.easing.easeInOut,

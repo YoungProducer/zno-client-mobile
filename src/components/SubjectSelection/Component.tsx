@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         height: '100vh',
         background: '#f5f7fa',
         padding: theme.spacing(1),
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
     },
     container: {
         display: 'flex',
@@ -37,20 +40,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
     searchBlock: {
         width: '100%',
-    },
-    popularBlock: {
-        background: '#5c498c',
-        height: 85,
-        width: 'max-content',
-        position: 'absolute',
-        // bottom: '1%',
-        bottom: '1%',
-        right: 0,
-        left: 0,
-        margin: 'auto',
-        borderRadius: 7,
-        paddingLeft: theme.spacing(3),
-        paddingRight: theme.spacing(3),
     },
     popularBlockInner: {
         height: 'inherit',
@@ -65,6 +54,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         paddingRight: theme.spacing(2),
         color: '#707070',
         fontSize: '1.3rem',
+        filter: `drop-shadow(0px 3px 3.5px rgba(0,0,0,0.16))`,
+        marginTop: theme.spacing(4),
     },
     iconButton: {
         width: 55,
@@ -76,7 +67,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         },
     },
     icon: {
-        color: '#5955cf',
+        color: '#656cff',
         width: 30,
         height: 30,
     },
@@ -91,7 +82,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         borderRadius: 9,
         background: '#fff',
         height: 58,
+        width: 'auto',
         filter: `drop-shadow(0px 3px 3.5px rgba(0,0,0,0.16))`,
+        top: theme.spacing(1),
+        left: theme.spacing(1),
+        right: theme.spacing(1),
     },
     appBarContainer: {
         display: 'flex',
@@ -147,48 +142,20 @@ const Component = (props: TSubjectSelectionProps) => {
     return (
         <>
             <div className={classNames(classes.root)}>
-                <AppBar elevation={0} className={classes.appBar} position='sticky'>
+                <AppBar elevation={0} className={classes.appBar} position='fixed'>
                     <div className={classes.appBarContainer}>
                         <Logo />
                     </div>
-                    {/* <div className={classes.appBarContainer}>
-                        { !loggedIn && (
-                            <>
-                                <Button
-                                    className={classes.signInButton}
-                                    onClick={() => history.push('/auth/signin')}
-                                >
-                                    Увійти
-                                </Button>
-                                <Button
-                                    variant='text'
-                                    className={classes.signUpButton}
-                                    onClick={() => history.push('/auth/signup')}
-                                >
-                                    Зареєструватися
-                                </Button>
-                            </>
-                        )}
-                        { loggedIn && (
-                            <Button
-                                variant='text'
-                                className={classes.signUpButton}
-                                onClick={fetchLogout}
-                            >
-                                Вийти
-                            </Button>
-                        )}
-                    </div> */}
                 </AppBar>
                 {/* <Container maxWidth='lg' className={classes.container}> */}
                     <div className={classes.actionsBlock}>
                         <div className={classes.searchBlock}>
                             <Typography
-                                variant='h6'
+                                variant='h5'
                                 className={classes.typography}
                                 align='center'
                             >
-                                Привіт, Олександре!
+                                Привіт, Олександре
                             </Typography>
                             <Typography
                                 variant='h6'
