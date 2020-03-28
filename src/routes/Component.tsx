@@ -13,6 +13,7 @@ import { Router, Route, Redirect, Switch } from 'react-router-dom';
 import PrivateRoute from 'components/PrivateRoute';
 import { TRoutesProps } from './container';
 import FullPageLoading from 'components/custom/FullPageLoading';
+import BottomBar from 'components/BottomBar';
 
 /** Lazy loaded components */
 const SignIn = React.lazy(() => import('components/SignIn'));
@@ -25,6 +26,7 @@ const TestSuite = React.lazy(() => import('./TestSuite'));
 const Component = ({ isLoggedIn }: TRoutesProps) => {
     return (
         <Suspense fallback={<FullPageLoading />}>
+            <BottomBar />
             <Switch>
                 <Route exact path='/'>
                     <Redirect to={{

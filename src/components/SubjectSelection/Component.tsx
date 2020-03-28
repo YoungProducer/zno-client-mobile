@@ -28,13 +28,15 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     root: {
         width: '100%',
         height: '100vh',
+        background: '#f5f7fa',
+        padding: theme.spacing(1),
     },
     container: {
         display: 'flex',
         marginTop: theme.spacing(10),
     },
     searchBlock: {
-        width: '50%',
+        width: '100%',
     },
     popularBlock: {
         background: '#5c498c',
@@ -57,13 +59,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     searchInput: {
         width: '100%',
         height: 67,
-        background: '#4d8fcb',
-        borderRadius: 34,
+        background: '#fff',
+        borderRadius: 17,
         paddingLeft: theme.spacing(2),
-        paddingRight: 6,
-        color: '#fff',
+        paddingRight: theme.spacing(2),
+        color: '#707070',
         fontSize: '1.3rem',
-        marginTop: theme.spacing(8),
     },
     iconButton: {
         width: 55,
@@ -80,20 +81,24 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         height: 30,
     },
     typography: {
-        color: '#fff',
+        color: '#707070',
     },
     actionsBlock: {
         display: 'flex',
         alignItems: 'center',
     },
     appBar: {
-        background: 'none',
-        paddingTop: theme.spacing(3),
-        paddingBottom: theme.spacing(3),
+        borderRadius: 9,
+        background: '#fff',
+        height: 58,
+        filter: `drop-shadow(0px 3px 3.5px rgba(0,0,0,0.16))`,
     },
     appBarContainer: {
         display: 'flex',
         justifyContent: 'space-between',
+        alignItems: 'center',
+        height: '100%',
+        padding: 4,
     },
     appBarActions: {
 
@@ -136,54 +141,61 @@ const Component = (props: TSubjectSelectionProps) => {
         setSearchValue(event.target.value);
 
     useEffect(() => {
-        fetchSubjectsNames();
+        // fetchSubjectsNames();
     }, []);
 
     return (
         <>
-            <div className={classNames(classes.root, 'subject-selection-background')}>
-                <AppBar elevation={0} className={classes.appBar} position='relative'>
-                    <Container maxWidth='lg' className={classes.appBarContainer}>
+            <div className={classNames(classes.root)}>
+                <AppBar elevation={0} className={classes.appBar} position='sticky'>
+                    <div className={classes.appBarContainer}>
                         <Logo />
-                        <div className={classes.appBarContainer}>
-                            { !loggedIn && (
-                                <>
-                                    <Button
-                                        className={classes.signInButton}
-                                        onClick={() => history.push('/auth/signin')}
-                                    >
-                                        Увійти
-                                    </Button>
-                                    <Button
-                                        variant='text'
-                                        className={classes.signUpButton}
-                                        onClick={() => history.push('/auth/signup')}
-                                    >
-                                        Зареєструватися
-                                    </Button>
-                                </>
-                            )}
-                            { loggedIn && (
+                    </div>
+                    {/* <div className={classes.appBarContainer}>
+                        { !loggedIn && (
+                            <>
+                                <Button
+                                    className={classes.signInButton}
+                                    onClick={() => history.push('/auth/signin')}
+                                >
+                                    Увійти
+                                </Button>
                                 <Button
                                     variant='text'
                                     className={classes.signUpButton}
-                                    onClick={fetchLogout}
+                                    onClick={() => history.push('/auth/signup')}
                                 >
-                                    Вийти
+                                    Зареєструватися
                                 </Button>
-                            )}
-                        </div>
-                    </Container>
+                            </>
+                        )}
+                        { loggedIn && (
+                            <Button
+                                variant='text'
+                                className={classes.signUpButton}
+                                onClick={fetchLogout}
+                            >
+                                Вийти
+                            </Button>
+                        )}
+                    </div> */}
                 </AppBar>
-                <Container maxWidth='lg' className={classes.container}>
+                {/* <Container maxWidth='lg' className={classes.container}> */}
                     <div className={classes.actionsBlock}>
                         <div className={classes.searchBlock}>
                             <Typography
                                 variant='h6'
                                 className={classes.typography}
+                                align='center'
                             >
-                                Для того щоб розпочати тест почніть вводити назву предемету у пошуку, після цього ви одразу побачите цей предмет
-                                у правому блоці, просто натисніть на нього і ви будете направлені на сторінку тесту.
+                                Привіт, Олександре!
+                            </Typography>
+                            <Typography
+                                variant='h6'
+                                className={classes.typography}
+                                align='center'
+                            >
+                                Що б ви хотіли вивчати сьогодні?
                             </Typography>
                             <InputBase
                                 className={classes.searchInput}
@@ -191,23 +203,23 @@ const Component = (props: TSubjectSelectionProps) => {
                                 value={seachValue}
                                 onChange={handleSearchChange}
                                 endAdornment={
-                                    <IconButton
-                                        size='small'
-                                        className={classes.iconButton}
-                                    >
+                                    // <IconButton
+                                    //     size='small'
+                                    //     className={classes.iconButton}
+                                    // >
                                         <SearchIcon
                                             className={classes.icon}
                                         />
-                                    </IconButton>
+                                    // </IconButton>
                                 }
                             />
                         </div>
-                        <SubjectPresentation
+                        {/* <SubjectPresentation
                             subjectsList={subjectsList}
                             searchValue={seachValue}
-                        />
+                        /> */}
                     </div>
-                </Container>
+                {/* </Container> */}
             </div>
             {/* <div className={classes.popularBlock}>
                 <SubjectTile
