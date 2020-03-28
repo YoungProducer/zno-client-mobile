@@ -30,9 +30,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         height: '100vh',
         background: '#f5f7fa',
         padding: theme.spacing(1),
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-around',
+        paddingTop: theme.spacing(12),
+        // display: 'flex',
+        // flexDirection: 'column',
+        // justifyContent: 'center',
     },
     container: {
         display: 'flex',
@@ -77,6 +78,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     actionsBlock: {
         display: 'flex',
         alignItems: 'center',
+        marginBottom: theme.spacing(3),
     },
     appBar: {
         borderRadius: 9,
@@ -139,6 +141,8 @@ const Component = (props: TSubjectSelectionProps) => {
         // fetchSubjectsNames();
     }, []);
 
+    const [subjectIndex, setSubjectIndex] = useState(0);
+
     return (
         <>
             <div className={classNames(classes.root)}>
@@ -181,11 +185,14 @@ const Component = (props: TSubjectSelectionProps) => {
                                 }
                             />
                         </div>
-                        {/* <SubjectPresentation
-                            subjectsList={subjectsList}
-                            searchValue={seachValue}
-                        /> */}
                     </div>
+                    <SubjectPresentation
+                        // subjectsList={[]}
+                        // searchValue={seachValue}
+                        activeTask={subjectIndex}
+                        tasksAmount={5}
+                        setTaskIndex={setSubjectIndex}
+                    />
                 {/* </Container> */}
             </div>
             {/* <div className={classes.popularBlock}>
