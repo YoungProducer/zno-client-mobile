@@ -12,6 +12,8 @@ module.exports = function getWebpackConfig(mode) {
 
   const src = paths.appSrc;
 
+  const analyzeBundle = process.env.ANALYZE_BUNDLE === 'true';
+
   return {
     entry: paths.appIndexJs,
     devtool: "source-map",
@@ -107,7 +109,7 @@ module.exports = function getWebpackConfig(mode) {
         // safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
         // systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
       }),
-      new BundleAnalyzerPlugin(),
+      analyzeBundle && new BundleAnalyzerPlugin(),
       production && new webpack.IgnorePlugin(/redux-logger/)
     ].filter(Boolean)
   };
