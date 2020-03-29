@@ -10,19 +10,19 @@ a {
 .auth-background {
     background:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100' width='100'%3E %3Ccircle cx='50' cy='50' r='40' stroke='' stroke-width='3' fill='rgb(133, 160, 249)' /%3E %3C/svg%3E")
-        -5% 5%/200px 200px no-repeat,
+        -5% 5%/100px 100px no-repeat,
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100' width='100'%3E %3Ccircle cx='50' cy='50' r='40' stroke='' stroke-width='3' fill='rgb(123, 148, 246)' /%3E %3C/svg%3E")
-        5% 40%/190px 190px no-repeat,
+        5% 40%/95px 95px no-repeat,
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100' width='100'%3E %3Ccircle cx='50' cy='50' r='40' stroke='' stroke-width='3' fill='rgb(135, 155, 244)' /%3E %3C/svg%3E")
-        15% 55%/290px 290px no-repeat,
+        15% 55%/145px 145px no-repeat,
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100' width='100'%3E %3Ccircle cx='50' cy='50' r='40' stroke='' stroke-width='3' fill='rgba(122, 136, 236, 0.7)' /%3E %3C/svg%3E")
-        100% 4%/200px 200px no-repeat,
+        50% 4%/100px 100px no-repeat,
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100' width='100'%3E %3Ccircle cx='50' cy='50' r='40' stroke='' stroke-width='3' fill='rgba(121, 125, 208, 0.7)' /%3E %3C/svg%3E")
-        101% 70%/200px 200px no-repeat,
+        50% 70%/100px 100px no-repeat,
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100' width='100'%3E %3Ccircle cx='50' cy='50' r='40' stroke='' stroke-width='3' fill='rgba(165, 171, 239, 0.4)' /%3E %3C/svg%3E")
-        93% 35%/160px 160px no-repeat,
+        45% 35%/80px 80px no-repeat,
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100' width='100'%3E %3Ccircle cx='50' cy='50' r='40' stroke='' stroke-width='3' fill='rgb(98, 108, 220)' /%3E %3C/svg%3E")
-        90% 40%/160px 160px no-repeat,
+        40% 40%/80px 80px no-repeat,
         linear-gradient(153deg, #7692f7 0%, #5a61ca 100%);
     width: 100%;
     height: 100vh;

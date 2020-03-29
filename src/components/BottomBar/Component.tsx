@@ -24,7 +24,8 @@ import { TBottomBarProps } from './container';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            position: 'absolute',
+            zIndex: 10,
+            position: 'fixed',
             minHeight: 70,
             borderRadius: 9,
             background: '#fff',

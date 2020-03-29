@@ -7,6 +7,7 @@
 
 // External imports
 import React, { useState, useCallback, useEffect, memo, useMemo } from 'react';
+import classNames from 'classnames';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -24,20 +25,17 @@ import Logo from 'img/logo';
 
 // Define classes as hook
 const useStyles = makeStyles((theme: Theme) => createStyles({
-    backdrop: {
-        background: '#fff',
-        width: '100%',
-        height: '100vh',
-    },
     container: {
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
-        height: '100%',
+        width: '100%',
+        boxSizing: 'border-box',
+        padding: theme.spacing(1),
     },
     root: {
-        width: 'min-content',
         borderRadius: 4,
+        width: '100%',
         filter: `drop-shadow(2.828px 2.828px 3.5px rgba(227,207,207,0.9))`,
         backgroundColor: '#ffffff',
         textAlign: 'center',
@@ -45,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     innerContainer: {
         borderRadius: 4,
         backgroundColor: '#f4f5f7',
-        padding: theme.spacing(4),
+        // padding: theme.spacing(4),
     },
     logoContainer: {
         paddingTop: theme.spacing(1),
@@ -63,7 +61,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         alignItems: 'center',
     },
     block: {
-        width: 'max-content',
+        width: '100%',
+        margin: 0,
+        '& .MuiGrid-item': {
+            width: '100%',
+        },
     },
     button: {
         filter: `drop-shadow(0px 3px 2.5px rgba(0,0,0,0.16))`,
@@ -73,6 +75,18 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
     icon: {
         color: '#555',
+    },
+    inputRoot: {
+        width: '100%',
+        height: 60,
+        background: `#fff`,
+        filter: `drop-shadow(0px 3px 2.5px rgba(0,0,0,0.16))`,
+        borderRadius: 4,
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
+    },
+    checkBox: {
+        width: '100%',
     },
 }));
 
@@ -170,85 +184,86 @@ const Component = (props: TSignUpProps) => {
     } = useSignUpElements(props);
 
     return (
-        <div className='auth-background'>
-            <Container maxWidth='lg' className={classes.container}>
-
-                <Paper
-                    className={classes.root}
-                    elevation={0}
-                    square
-                >
-                    <div className={classes.logoContainer}>
-                        <Logo />
-                    </div>
-                    <div className={classes.innerContainer}>
-                        <Grid
-                            container
-                            direction='column'
-                            alignItems='center'
-                            item
-                            spacing={3}
-                            className={classes.block}
-                        >
-                            <Grid item>
-                                <Input
-                                    color='primary'
-                                    type='email'
-                                    placeholder='Емеїл'
-                                    data-testid='signup-email-input'
-                                    startAdornment={<EmailIcon className={classes.icon}/>}
-                                    { ...emailField }
-                                />
-                            </Grid>
-                            <Grid item>
-                                <Input
-                                    color='primary'
-                                    type='password'
-                                    placeholder='Пароль'
-                                    data-testid='signup-password-input'
-                                    startAdornment={<LockIcon className={classes.icon}/>}
-                                    { ...passwordField }
-                                />
-                            </Grid>
-                            <Grid item>
-                                <Input
-                                    color='primary'
-                                    type='password'
-                                    placeholder='Пароль підтвердження'
-                                    data-testid='signup-conf-password-input'
-                                    startAdornment={<LockIcon className={classes.icon}/>}
-                                    { ...confPasswordField }
-                                />
-                            </Grid>
-                            <Grid item>
-                                <Button
-                                    color='primary'
-                                    variant='contained'
-                                    disableElevation
-                                    className={classes.button}
-                                    data-testid='signup-button'
-                                    { ...signUpButton }
-                                >
-                                    Зареєструватися
-                                </Button>
-                            </Grid>
-                            <Grid>
-                                <Typography align='center'>
-                                    Вже зареєстровані?
-                                    <NavigationLink
-                                        navLink={{
-                                            to: '/auth/signin',
-                                        }}
-                                        className={classes.link}
-                                    >
-                                        Увійти
-                                    </NavigationLink>
-                                </Typography>
-                            </Grid>
+        <div className={classNames('auth-background', classes.container)}>
+            <Paper
+                className={classes.root}
+                elevation={0}
+                square
+            >
+                <div className={classes.logoContainer}>
+                    <Logo />
+                </div>
+                <div className={classes.innerContainer}>
+                    <Grid
+                        container
+                        direction='column'
+                        alignItems='center'
+                        justify='flex-start'
+                        item
+                        spacing={3}
+                        className={classes.block}
+                    >
+                        <Grid item>
+                            <Input
+                                color='primary'
+                                type='email'
+                                placeholder='Емеїл'
+                                data-testid='signup-email-input'
+                                startAdornment={<EmailIcon className={classes.icon}/>}
+                                rootClassName={classes.inputRoot}
+                                { ...emailField }
+                            />
                         </Grid>
-                    </div>
-                </Paper>
-            </Container>
+                        <Grid item>
+                            <Input
+                                color='primary'
+                                type='password'
+                                placeholder='Пароль'
+                                data-testid='signup-password-input'
+                                startAdornment={<LockIcon className={classes.icon}/>}
+                                rootClassName={classes.inputRoot}
+                                { ...passwordField }
+                            />
+                        </Grid>
+                        <Grid item>
+                            <Input
+                                color='primary'
+                                type='password'
+                                placeholder='Пароль підтвердження'
+                                data-testid='signup-conf-password-input'
+                                startAdornment={<LockIcon className={classes.icon}/>}
+                                rootClassName={classes.inputRoot}
+                                { ...confPasswordField }
+                            />
+                        </Grid>
+                        <Grid item>
+                            <Button
+                                color='primary'
+                                variant='contained'
+                                disableElevation
+                                className={classes.button}
+                                data-testid='signup-button'
+                                { ...signUpButton }
+                            >
+                                Зареєструватися
+                            </Button>
+                        </Grid>
+                        <Grid>
+                            <Typography align='center'>
+                                Вже зареєстровані?
+                                <NavigationLink
+                                    navLink={{
+                                        to: '/auth/signin',
+                                    }}
+                                    className={classes.link}
+                                >
+                                    Увійти
+                                </NavigationLink>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </div>
+            </Paper>
         </div>
     );
 };
