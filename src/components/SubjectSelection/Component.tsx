@@ -25,13 +25,9 @@ import SubjectPresentation from './SubjectsPresentation';
 const useStyles = makeStyles((theme: Theme) => createStyles({
     root: {
         width: '100%',
-        height: '100vh',
         background: '#f5f7fa',
         padding: theme.spacing(1),
         paddingTop: theme.spacing(12),
-        // display: 'flex',
-        // flexDirection: 'column',
-        // justifyContent: 'center',
     },
     container: {
         display: 'flex',

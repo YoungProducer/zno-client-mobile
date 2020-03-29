@@ -7,6 +7,11 @@ a {
     text-decoration: none;
 }
 
+#root {
+    background-color: #f5f7fa;
+    min-height: 100vh;
+}
+
 .auth-background {
     background:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100' width='100'%3E %3Ccircle cx='50' cy='50' r='40' stroke='' stroke-width='3' fill='rgb(133, 160, 249)' /%3E %3C/svg%3E")

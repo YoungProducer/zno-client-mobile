@@ -33,11 +33,14 @@ import {
     EExamTypes,
     TSubjectConfigurationModalProps,
 } from './container';
-import Wrapper from '../Wrapper';
+import AppBar from 'components/AppBar';
 import Checkbox from 'components/custom/Checkbox';
 
 /** Define Material UI styles as hook */
 const useStyles = makeStyles((theme: Theme) => createStyles({
+    root: {
+        paddingTop: 70,
+    },
     block: {
         display: 'block',
         marginBottom: theme.spacing(3),
@@ -530,10 +533,10 @@ const Component = (props: TSubjectConfigurationModalProps) => {
     } = useSubjectConfigurationElements(props);
 
     return (
-        <Wrapper
-            aria-labelledby='subject-config-title'
-            aria-describedby=''
+        <div
+            className={classes.root}
         >
+            <AppBar />
             <div className={classes.dialogHeader}>
                 <IconButton
                     onClick={redirectToHome}
@@ -554,7 +557,7 @@ const Component = (props: TSubjectConfigurationModalProps) => {
                 </DialogTitle>
                 <DialogContent>
                     <FormControl component='fieldset' className={classes.block}>
-                        <FormLabel component='legend'>Оберіть тип тесту</FormLabel>
+                        <FormLabel component='legend' color='secondary'>Оберіть тип тесту</FormLabel>
                         <RadioGroup
                             aria-label='select-test-type'
                             name='select-test-type'
@@ -578,7 +581,7 @@ const Component = (props: TSubjectConfigurationModalProps) => {
 
                     { displaySubSubjectSelection && (
                         <FormControl component='div' className={classes.block}>
-                            <FormLabel component='legend'>Оберіть предмет</FormLabel>
+                            <FormLabel component='legend' color='secondary'>Оберіть предмет</FormLabel>
                             <TextField
                                 id='standard-select-currency'
                                 className={classes.textField}
@@ -596,7 +599,7 @@ const Component = (props: TSubjectConfigurationModalProps) => {
 
                     { displayThemeSelection && (
                         <FormControl component='div' className={classes.block}>
-                            <FormLabel component='legend'>Оберіть тему</FormLabel>
+                            <FormLabel component='legend' color='secondary'>Оберіть тему</FormLabel>
                             <TextField
                                 id='standard-select-currency'
                                 className={classes.textField}
@@ -614,7 +617,7 @@ const Component = (props: TSubjectConfigurationModalProps) => {
 
                     { displayExamTypeSelection && (
                         <FormControl component='fieldset' className={classes.block}>
-                            <FormLabel component='legend'>Оберіть тип тесту</FormLabel>
+                            <FormLabel component='legend' color='secondary'>Оберіть тип тесту</FormLabel>
                             <RadioGroup
                                 aria-label='position'
                                 name='position'
@@ -643,6 +646,7 @@ const Component = (props: TSubjectConfigurationModalProps) => {
                                 <FormLabel
                                     component='legend'
                                     data-testid='select-exam-title'
+                                    color='secondary'
                                 >
                                     { selectExamTypeField.value === EExamTypes.TRAININGS
                                         ? 'Виберіть тренувальний варіант'
@@ -696,6 +700,7 @@ const Component = (props: TSubjectConfigurationModalProps) => {
                         className={classes.button}
                         data-testid='go-to-test'
                         onClick={handleGoToTest}
+                        disableElevation
                     >
                         Розпочати тест
                     </Button>
@@ -704,13 +709,14 @@ const Component = (props: TSubjectConfigurationModalProps) => {
                         color='primary'
                         className={classNames(classes.button, classes.declineButton)}
                         onClick={dialog.onClose}
+                        disableElevation
                         data-testid='close-subject-conf-button'
                     >
                         Скасувати
                     </Button>
                 </DialogActions>
             </div>
-        </Wrapper>
+        </div>
     );
 };
 
