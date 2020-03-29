@@ -14,6 +14,7 @@ import PrivateRoute from 'components/PrivateRoute';
 import { TRoutesProps } from './container';
 import FullPageLoading from 'components/custom/FullPageLoading';
 import BottomBar from 'components/BottomBar';
+import InDev from 'components/InDev';
 
 /** Lazy loaded components */
 const SignIn = React.lazy(() => import('components/SignIn'));
@@ -55,6 +56,7 @@ const Component = ({ isLoggedIn }: TRoutesProps) => {
                 >
                     <TestSuite />
                 </PrivateRoute>
+                <Route exact path='/user/profile' component={InDev}/>
                 <Route exact path='/auth/signin' component={SignIn} />
                 <Route exact path='/auth/signup'>
                     { isLoggedIn
