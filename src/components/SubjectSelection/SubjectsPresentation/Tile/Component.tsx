@@ -75,30 +75,6 @@ const useTileStyles = makeStyles((theme: Theme) =>
         label: {
             color: '#777b7e',
         },
-        right: {
-            background: theme.palette.secondary.main,
-            color: theme.palette.getContrastText(theme.palette.secondary.main),
-            transition: theme.transitions.create(['height', 'width', 'background', 'color'], {
-                duration: 200,
-                easing: theme.transitions.easing.easeInOut,
-            }),
-        },
-        wrong: {
-            background: red.A200,
-            color: theme.palette.getContrastText(red.A200),
-            transition: theme.transitions.create(['height', 'width', 'background', 'color'], {
-                duration: 200,
-                easing: theme.transitions.easing.easeInOut,
-            }),
-        },
-        selected: {
-            background: yellow[600],
-            color: theme.palette.getContrastText(yellow[600]),
-            transition: theme.transitions.create(['height', 'width', 'background', 'color'], {
-                duration: 200,
-                easing: theme.transitions.easing.easeInOut,
-            }),
-        },
     }));
 
 const Tile = ({
@@ -115,53 +91,17 @@ const Tile = ({
     const classes = useTileStyles({});
 
     return (
-        <AdditionalAnswerPropertiesContext.Consumer>
-            { contextValue => {
-                const { showRightDuringTest } = contextValue;
-
-                /** Variables which related for additional classes  for ButtonBase*/
-                const applySelected =
-                    selected
-                    && !gived
-                    && !finished;
-
-                const applyRight =
-                    showRightDuringTest
-                    && gived
-                    && right;
-
-                const applyWrong =
-                    (showRightDuringTest
-                    && gived || finished)
-                    && !right;
-
-                const applyGived =
-                    !showRightDuringTest
-                    && gived;
-
-                return (
-                    <div
-                        className={classNames(classes.tile, {
-                            [classes.tileActive]: active,
-                            [classes.tileHide]: hide,
-                            [classes.selected]: applySelected,
-                            [classes.right]: applyRight || applyGived,
-                            [classes.wrong]: applyWrong,
-                        })}
-                        onClick={callback}
-                    >
-                        <img src={image} className={classes.img}/>
-                        <div className={classes.desc}>
-                            <Typography variant='h5' className={classes.label}>
-                                Математика
-                            </Typography>
-                        </div>
-                        {/* <p>Зав</p>
-                        <p>{taskIndex + 1}</p> */}
-                    </div>
-                );
-            }}
-        </AdditionalAnswerPropertiesContext.Consumer>
+        <div
+            className={classes.tile}
+            onClick={callback}
+        >
+            <img src={image} className={classes.img}/>
+            <div className={classes.desc}>
+                <Typography variant='h5' className={classes.label}>
+                    Математика
+                </Typography>
+            </div>
+        </div>
     );
 };
 

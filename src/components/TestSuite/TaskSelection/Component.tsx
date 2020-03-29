@@ -51,6 +51,7 @@ const useCarouselFields = (props: ITaskSelectionProps) => {
 
     /** Offset of the inner container */
     const [offsetX, setOffestX] = useState<number>(0);
+    const [prevOffsetX, setPrevOffsetX] = useState<number>(0);
     /** Toggles when mouse down or up */
     const [mouseDown, toggleMouseDown] = useState<boolean>(false);
     /** Related to animate class in inner container */
@@ -92,17 +93,21 @@ const useCarouselFields = (props: ITaskSelectionProps) => {
         return buttonsAmount > index ? buttonsAmount : index + 2;
     }, [buttonsAmount, offsetX]);
 
+    const handleOnTouchStart = (event: React.TouchEvent<HTMLDivElement>) => setPrevOffsetX(event.touches[0].clientX);
+
     /**
      * Handle mouse move to drag the carousel
      * offset divided by 2 to make carousel slower.
      */
-    const handleOnMouseMove = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-        if (mouseDown) {
-            const mouseOffsetX = event.movementX / 2;
-            const newOffsetX = offsetX + mouseOffsetX;
+    const handleOnTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+        const clientX = event.touches[0].clientX;
 
-            handleSetOffset(newOffsetX);
-        }
+        const mouseOffsetX = (clientX - prevOffsetX) / 2;
+        const newOffsetX = offsetX + mouseOffsetX;
+
+        setPrevOffsetX(clientX);
+
+        handleSetOffset(newOffsetX);
     };
 
     /**
@@ -186,7 +191,8 @@ const useCarouselFields = (props: ITaskSelectionProps) => {
         ]);
 
     return {
-        handleOnMouseMove,
+        handleOnTouchStart,
+        handleOnTouchMove,
         handleOnMouseDown,
         handleOnMouseUp,
         tiles,
@@ -212,14 +218,16 @@ const Component = (props: ITaskSelectionProps) => {
         tiles,
         rootContainerRef,
         handleOnMouseUp,
-        handleOnMouseMove,
+        handleOnTouchStart,
+        handleOnTouchMove,
         handleOnMouseDown,
     } = useCarouselFields(props);
 
     return (
         <div
             className={classes.root}
-            onMouseMove={handleOnMouseMove}
+            onTouchStart={handleOnTouchStart}
+            onTouchMove={handleOnTouchMove}
             onMouseDown={handleOnMouseDown}
             onMouseUp={handleOnMouseUp}
             ref={rootContainerRef}

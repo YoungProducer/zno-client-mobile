@@ -10,6 +10,7 @@ a {
 #root {
     background-color: #f5f7fa;
     min-height: 100vh;
+    height: 100vh;
 }
 
 .auth-background {
@@ -38,4 +39,8 @@ a {
 .subject-selection-background {
     background: linear-gradient(112deg, #20aed0 0%, #811ec8 100%);
     clip-path: polygon(0 98%, 100% 98%, 100% 0, 0 0);
+}
+
+.mui-grid-container-fix {
+    width: 100%!important;
 }

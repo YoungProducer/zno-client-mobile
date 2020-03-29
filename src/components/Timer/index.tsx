@@ -14,11 +14,11 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            width: 370,
+            width: '100%',
             '& span': {
                 marginRight: theme.spacing(0.5),
                 color: '#b19898',
-                fontSize: '1.5375rem',
+                fontSize: '1.3rem',
                 '&:last-child': {
                     marginRight: 0,
                 },

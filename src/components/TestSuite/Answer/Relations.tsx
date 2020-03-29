@@ -21,7 +21,7 @@ const Component = ({ taskIndex }: ISingleAnswerProps) => {
     return (
         <Grid container spacing={2}>
             {[...Array(4)].map((_, hIndex) => (
-                <Grid container item spacing={2} key={hIndex}>
+                <Grid container item spacing={2} key={hIndex} className='mui-grid-container-fix'>
                     { markUp.map((mark, vIndex) => (
                         <Grid item key={vIndex}>
                             <AnswerTile

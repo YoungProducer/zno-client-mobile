@@ -39,13 +39,6 @@ const useStyles = makeStyles((theme: Theme) =>
         actions: {
             marginTop: theme.spacing(2),
         },
-        icon: {
-            color: '#333',
-        },
-        homeIcon: {
-            position: 'absolute',
-            left: 0,
-        },
     }));
 
 const Component = (props: TTestSuiteStatsProps) => {
@@ -66,19 +59,11 @@ const Component = (props: TTestSuiteStatsProps) => {
 
     const { showRightDuringTest } = useContext(AdditionalAnswerPropertiesContext);
 
-    const redirectToHome = () => history.push('/');
-
     const finishTestSuiteHandler = () => setTestSuiteFinished(true);
 
     return (
         <Wrapper>
             <div className={classes.dialogHeader}>
-                <IconButton
-                    onClick={redirectToHome}
-                    className={classes.homeIcon}
-                >
-                    <HomeIcon className={classes.icon}/>
-                </IconButton>
                 <Typography
                     variant='h5'
                     align='center'
