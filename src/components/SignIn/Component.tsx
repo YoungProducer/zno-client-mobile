@@ -19,6 +19,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
 
 /** Application's imports */
+import { useSearchParams } from 'hooks/useSearchParams';
 import { TSignInProps } from './container';
 import NavigationLink from 'components/NavigationLink';
 import Input from 'components/custom/Input';
@@ -113,6 +114,14 @@ const useSignInElements = (props: TSignInProps) => {
 
     const history = useHistory();
 
+    const searchParams = useSearchParams<{ email: string }>({ searchNames: ['email'] });
+
+    /** Set email from url */
+    useEffect(() => {
+        setEmail(searchParams.email || '');
+    }, [searchParams]);
+
+    /** If user is logged in redirect to previous page */
     useEffect(() => {
         if (isLoggedIn) {
             const next = history.location.state

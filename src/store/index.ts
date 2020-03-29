@@ -10,11 +10,17 @@ import {
     configureStore,
     getDefaultMiddleware,
 } from '@reduxjs/toolkit';
+import { History } from 'history';
 
 // Application's imports
 import rootReducer from './slices';
 import middlewares from './middlewares';
 import testState from './testState';
+import history from 'routes/history';
+
+export interface ThunkExtractArgument {
+    history: History<{}>;
+}
 
 const createStore = () => {
     /** Extract env variable */
@@ -25,22 +31,14 @@ const createStore = () => {
 
     /** Define middlewares */
     const defaultMiddleware = getDefaultMiddleware({
-        thunk: true,
+        thunk: {
+            extraArgument: {
+                history,
+            },
+        },
         serializableCheck: true,
         immutableCheck: true,
     });
-
-    // const createLogger = !production
-    //     ? require('redux-logger').createLogger
-    //     : undefined;
-
-    // /** Setup logger middleware */
-    // const logger = createLogger
-    //     ? createLogger({
-    //         collapsed: true,
-    //         diff: true,
-    //     })
-    //     : undefined;
 
     const logger = !production
         ? require('redux-logger').createLogger({

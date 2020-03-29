@@ -20,34 +20,38 @@ import {
     verifySignUpCredentials,
     IFetchSignUpActionCredentials,
 } from 'utils/verify-credentials';
+import { RootState } from 'store/slices';
+import { ThunkExtractArgument } from 'store';
 
-export const fetchSignUpAction = (credentials: IFetchSignUpActionCredentials) => async (dispatch: Dispatch<any>) => {
-    dispatch(signUpLoadingAction(true));
+export const fetchSignUpAction = (credentials: IFetchSignUpActionCredentials) =>
+    async (dispatch: Dispatch<any>, _: () => RootState, extra: ThunkExtractArgument) => {
+        dispatch(signUpLoadingAction(true));
 
-    const invalidData = verifySignUpCredentials(credentials);
+        const invalidData = verifySignUpCredentials(credentials);
 
-    if (!invalidData) {
-        return await api.signup({
-            email: credentials.email,
-            password: credentials.password,
-        })
-            .then(response => {
-                dispatch(signUpLoadingAction(false));
-
-                return response;
+        if (!invalidData) {
+            return await api.signup({
+                email: credentials.email,
+                password: credentials.password,
             })
-            .catch(error => {
-                // const errorData = error.response.data.error.data;
+                .then(response => {
+                    dispatch(signUpLoadingAction(false));
 
-                // if (Object.keys(error.response.data).some(key => key === 'error')) {
-                //     dispatch(setSignUpErrorFieldsAction(errorData.invalidFields));
-                //     dispatch(setSignUpFieldsMessagesAction(errorData.invalidFieldsMessages));
-                // }
-                dispatch(signUpLoadingAction(false));
-            });
-    }
+                    extra.history.push(`/auth/signin?email=${credentials.email}`);
+                    return response;
+                })
+                .catch(error => {
+                    // const errorData = error.response.data.error.data;
 
-    dispatch(signUpLoadingAction(false));
-    dispatch(setSignUpErrorFieldsAction(invalidData.invalidFields));
-    dispatch(setSignUpFieldsMessagesAction(invalidData.fieldsMessages));
-};
+                    // if (Object.keys(error.response.data).some(key => key === 'error')) {
+                    //     dispatch(setSignUpErrorFieldsAction(errorData.invalidFields));
+                    //     dispatch(setSignUpFieldsMessagesAction(errorData.invalidFieldsMessages));
+                    // }
+                    dispatch(signUpLoadingAction(false));
+                });
+        }
+
+        dispatch(signUpLoadingAction(false));
+        dispatch(setSignUpErrorFieldsAction(invalidData.invalidFields));
+        dispatch(setSignUpFieldsMessagesAction(invalidData.fieldsMessages));
+    };
