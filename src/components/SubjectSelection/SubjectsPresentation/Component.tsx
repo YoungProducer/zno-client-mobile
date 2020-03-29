@@ -28,6 +28,7 @@ const useComponentStyles = makeStyles((theme: Theme) =>
             height: 300,
             width: '100%',
             cursor: 'pointer',
+            marginLeft: theme.spacing(-1),
         },
         innerContainer: {
             display: 'flex',
@@ -35,6 +36,7 @@ const useComponentStyles = makeStyles((theme: Theme) =>
             position: 'absolute',
             height: '100%',
             width: '100%',
+            paddingLeft: theme.spacing(1),
         },
         animateContainer: {
             transition: theme.transitions.create('left', {
