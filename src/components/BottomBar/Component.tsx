@@ -6,7 +6,7 @@
  */
 
 /** External imports */
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import Collapse from '@material-ui/core/Collapse';
@@ -161,6 +161,14 @@ const Component = ({ loggedIn, logout }: TBottomBarProps) => {
             home: pathname === '/' || pathname === '/subject-selection',
             profile: pathname === '/user/profile',
         };
+    }, [location]);
+
+    useEffect(() => {
+        const { pathname } = location;
+
+        if (pathname === '/test-suite') {
+            setHidden(true);
+        }
     }, [location]);
 
     return (
