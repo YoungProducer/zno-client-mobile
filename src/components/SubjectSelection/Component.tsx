@@ -9,7 +9,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import classNames from 'classnames';
-import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import InputBase from '@material-ui/core/InputBase';
@@ -20,9 +19,8 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core';
 
 /** Application's imports */
 import { TSubjectSelectionProps } from './container';
-import SubjectTile from './SubjectTile';
+import AppBar from 'components/AppBar';
 import SubjectPresentation from './SubjectsPresentation';
-import Logo from 'img/logo';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     root: {
@@ -80,26 +78,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         alignItems: 'center',
         marginBottom: theme.spacing(3),
     },
-    appBar: {
-        borderRadius: 9,
-        background: '#fff',
-        height: 58,
-        width: 'auto',
-        filter: `drop-shadow(0px 3px 3.5px rgba(0,0,0,0.16))`,
-        top: theme.spacing(1),
-        left: theme.spacing(1),
-        right: theme.spacing(1),
-    },
-    appBarContainer: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        height: '100%',
-        padding: 4,
-    },
-    appBarActions: {
-
-    },
     signUpButton: {
         borderRadius: 25,
         background: '#fff',
@@ -143,15 +121,12 @@ const Component = (props: TSubjectSelectionProps) => {
 
     const [subjectIndex, setSubjectIndex] = useState(0);
 
+    const [extend, setExtend] = useState(false);
+
     return (
         <>
             <div className={classNames(classes.root)}>
-                <AppBar elevation={0} className={classes.appBar} position='fixed'>
-                    <div className={classes.appBarContainer}>
-                        <Logo />
-                    </div>
-                </AppBar>
-                {/* <Container maxWidth='lg' className={classes.container}> */}
+                <AppBar />
                     <div className={classes.actionsBlock}>
                         <div className={classes.searchBlock}>
                             <Typography
@@ -174,35 +149,19 @@ const Component = (props: TSubjectSelectionProps) => {
                                 value={seachValue}
                                 onChange={handleSearchChange}
                                 endAdornment={
-                                    // <IconButton
-                                    //     size='small'
-                                    //     className={classes.iconButton}
-                                    // >
-                                        <SearchIcon
-                                            className={classes.icon}
-                                        />
-                                    // </IconButton>
+                                    <SearchIcon
+                                        className={classes.icon}
+                                    />
                                 }
                             />
                         </div>
                     </div>
                     <SubjectPresentation
-                        // subjectsList={[]}
-                        // searchValue={seachValue}
                         activeTask={subjectIndex}
                         tasksAmount={5}
                         setTaskIndex={setSubjectIndex}
                     />
-                {/* </Container> */}
             </div>
-            {/* <div className={classes.popularBlock}>
-                <SubjectTile
-                    subject={subjectsList[0]}
-                />
-                <SubjectTile
-                    subject={subjectsList[1]}
-                />
-            </div> */}
         </>
     );
 };
