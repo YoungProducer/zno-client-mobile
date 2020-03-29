@@ -9,6 +9,7 @@
 import React, { useState, useCallback, useEffect, memo, useMemo } from 'react';
 import classNames from 'classnames';
 import Container from '@material-ui/core/Container';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -183,6 +184,8 @@ const Component = (props: TSignUpProps) => {
         signUpButton,
     } = useSignUpElements(props);
 
+    const { loading } = props;
+
     return (
         <div className={classNames('auth-background', classes.container)}>
             <Paper
@@ -245,7 +248,10 @@ const Component = (props: TSignUpProps) => {
                                 data-testid='signup-button'
                                 { ...signUpButton }
                             >
-                                Зареєструватися
+                                { loading
+                                    ? <CircularProgress color='primary'/>
+                                    : 'Зареєструватися'
+                                }
                             </Button>
                         </Grid>
                         <Grid>

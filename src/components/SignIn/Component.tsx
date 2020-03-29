@@ -12,6 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import EmailIcon from '@material-ui/icons/Email';
 import LockIcon from '@material-ui/icons/Lock';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
@@ -192,6 +193,8 @@ const Component = (props: TSignInProps) => {
     /** Get fields data from hook */
     const { emailField, passwordField, rememberCheckbox, signInButton } = useSignInElements(props);
 
+    const { loading } = props;
+
     return (
         <div
             className={classNames('auth-background', classes.container)}
@@ -254,9 +257,13 @@ const Component = (props: TSignInProps) => {
                                 disableElevation
                                 className={classes.button}
                                 data-testid='signin-button'
+                                disabled={loading}
                                 { ...signInButton }
                             >
-                                Увійти
+                                { loading
+                                    ? (<CircularProgress color='primary'/>)
+                                    : 'Увійти'
+                                }
                             </Button>
                         </Grid>
                         <Grid item>
