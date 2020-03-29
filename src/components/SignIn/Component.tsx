@@ -119,7 +119,7 @@ const useSignInElements = (props: TSignInProps) => {
     /** Set email from url */
     useEffect(() => {
         setEmail(searchParams.email || '');
-    }, [searchParams]);
+    }, []);
 
     /** If user is logged in redirect to previous page */
     useEffect(() => {
