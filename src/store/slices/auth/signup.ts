@@ -76,7 +76,7 @@ export interface ISignUpInitialState {
 
 // Define default object for fieldsMessages property
 const defaultFieldsMessages: ISignUpFieldsMessages = {
-    email: '',
+    email: 'Рекомендовано вводити дійсну email адресу.',
     password: 'Не менше 8 символів.',
     confPassword: 'Підвердіть ваш пароль.',
 };

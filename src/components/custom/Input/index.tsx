@@ -84,6 +84,7 @@ const Component = (props: TInputBaseProps) => {
                     classes={{
                         tooltip: classes.tooltip,
                     }}
+                    enterTouchDelay={200}
                     aria-label='helper-text'
                     data-testid='input-tooltip'
                 >
