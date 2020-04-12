@@ -28,7 +28,7 @@ export const selectSubjectConfigSubjectData = createSelector(
     (subjectConfig) => subjectConfig ? {
         name: subjectConfig.name,
         id: subjectConfig.id,
-    } : null,
+    } : undefined,
 );
 
 /**
