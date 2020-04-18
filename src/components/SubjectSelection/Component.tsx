@@ -125,13 +125,13 @@ const Component = (props: TSubjectSelectionProps) => {
                 <AppBar />
                     <div className={classes.actionsBlock}>
                         <div className={classes.searchBlock}>
-                            <Typography
+                            {/* <Typography
                                 variant='h5'
                                 className={classes.typography}
                                 align='center'
                             >
                                 Привіт, Олександре
-                            </Typography>
+                            </Typography> */}
                             <Typography
                                 variant='h6'
                                 className={classes.typography}
