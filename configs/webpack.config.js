@@ -85,7 +85,7 @@ module.exports = function getWebpackConfig(mode) {
           loader: "file-loader?name=fonts/[name].[ext]",
         },
         {
-          test: /\.(jpe?g|png|gif|svg)$/i,
+          test: /\.(jpe?g|png|gif|svg|ico)$/i,
           use: [
             'url-loader?limit=10000',
             'img-loader'

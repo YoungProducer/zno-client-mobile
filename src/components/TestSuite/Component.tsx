@@ -8,6 +8,7 @@
 
 /** External imports */
 import React, { useState, useEffect, useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import Grid from '@material-ui/core/Grid';
 import Grow from '@material-ui/core/Collapse';
 import Typography from '@material-ui/core/Typography';
@@ -33,9 +34,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         height: '100%',
     },
     header: {
-        // padding: theme.spacing(2),
-        // background: '#fff',
-        // borderRadius: 16,
         display: 'flex',
         justifyContent: 'space-between',
         flexDirection: 'column',
@@ -153,6 +151,10 @@ const Component = (props: any) => {
         <div
             className={classes.root}
         >
+            <Helmet
+                titleTemplate='Видавництво "Підручники і посібники" - %s'
+                title={`${name}`}
+            />
             <AppBar
                 extendable={<TestSuiteStats />}
                 extend={showStats}
@@ -171,18 +173,15 @@ const Component = (props: any) => {
                     )}
                 </div>
                 <img
-                    // className={classes.img}
                     src={tasksImages[task.current]}
                 />
                 <Grow in={explanation.show} unmountOnExit>
                     <img src={explanationsImages[task.current]} className={classes.img}/>
                 </Grow>
                 <Grid container direction='column' spacing={2} className={classes.gridContainer}>
-                    {/* <Grid item className={classes.gridItem}> */}
-                    {/* </Grid> */}
                     <Grid item container>
                         <Answer
-                            type={answers[task.current].type}
+                            type={answers[task.current] ? answers[task.current].type : 'SINGLE'}
                             taskIndex={task.current}
                         />
                     </Grid>
