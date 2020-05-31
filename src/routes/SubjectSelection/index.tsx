@@ -12,7 +12,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 /** Application's imports */
 import SubjectSelection from 'components/SubjectSelection';
-import favicon from 'public/images/favicon.ico';
+import favicon from 'images/favicon.ico';
 
 /** Create component */
 const Component = () => (

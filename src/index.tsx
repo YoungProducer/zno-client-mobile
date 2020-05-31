@@ -13,7 +13,7 @@ import { Provider } from 'react-redux';
 // Application's imports
 import store from 'store';
 import App from './containers/App';
-import 'public/styles/index.css';
+import 'styles/index.css';
 
 // Get root div
 const root = document.getElementById('root');

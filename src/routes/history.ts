@@ -9,7 +9,9 @@
 import { createBrowserHistory } from 'history';
 
 /** Create browser history */
-const history = createBrowserHistory();
+const history = createBrowserHistory({
+    basename: '/zno/m',
+});
 
 /** Export history */
 export default history;

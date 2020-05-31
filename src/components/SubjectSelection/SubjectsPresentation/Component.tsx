@@ -18,7 +18,7 @@ import Tile, {
     activeTileWidth,
     tilesSpacing,
 } from './Tile';
-import math from 'public/images/math.jpg';
+import math from 'images/math.jpg';
 
 const useComponentStyles = makeStyles((theme: Theme) =>
     createStyles({

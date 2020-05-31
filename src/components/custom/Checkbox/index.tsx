@@ -14,7 +14,7 @@ import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 /** Application's imports */
-import Check from 'public/images/check.svg';
+import Check from 'images/check.svg';
 
 /** Define MaterialUI classes */
 const useStyles = makeStyles((theme: Theme) =>

@@ -9,6 +9,6 @@
 import React from 'react';
 
 /** Application's imports */
-import logo from 'public/images/logo.png';
+import logo from 'images/logo.png';
 
 export default () => <img src={logo} height='50' />;
