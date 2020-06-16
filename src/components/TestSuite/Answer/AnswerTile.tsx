@@ -137,7 +137,9 @@ const AnswerTile = ({
                     && gived
                     && value === answer.right[answerIndex];
 
-                const currentTileGived = answer.gived[answerIndex] === value;
+                const currentTileGived = answer
+                    ? answer.gived[answerIndex] === value
+                    : false;
 
                 return (
                     <ButtonBase
