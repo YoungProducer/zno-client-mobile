@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 /** Application's imports */
 import { selectIsLoggedIn } from 'store/selectors/auth';
 import { fetchLogoutAction } from 'store/actionCreators/auth';
-import { RootState } from 'store/slices';
+import { RootState, setTestSuiteFinishedAction } from 'store/slices';
 
 interface IStateProps {
     loggedIn: boolean;
@@ -19,6 +19,7 @@ interface IStateProps {
 
 interface IDispatchProps {
     logout: () => void;
+    setTestSuiteFinished: (value: boolean) => void;
 }
 
 export type TBottomBarProps =
@@ -31,6 +32,8 @@ const mapStateToProps = (state: RootState): IStateProps => ({
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     logout: () => dispatch(fetchLogoutAction()),
+    setTestSuiteFinished: (finished: boolean) =>
+        dispatch(setTestSuiteFinishedAction(finished)),
 });
 
 export default connect<IStateProps, IDispatchProps>(

@@ -128,7 +128,11 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }));
 
-const Component = ({ loggedIn, logout }: TBottomBarProps) => {
+const Component = ({
+    loggedIn,
+    logout,
+    setTestSuiteFinished,
+}: TBottomBarProps) => {
     const classes = useStyles({});
 
     const history = useHistory();
@@ -168,6 +172,10 @@ const Component = ({ loggedIn, logout }: TBottomBarProps) => {
 
         if (pathname === '/test-suite') {
             setHidden(true);
+        }
+
+        if (pathname !== '/test-suite') {
+            setTestSuiteFinished(false);
         }
     }, [location]);
 
