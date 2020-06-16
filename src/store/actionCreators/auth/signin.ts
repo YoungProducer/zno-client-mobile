@@ -43,6 +43,11 @@ export const fetchSignInAction = (credentials: IFetchSignInActionCredentials) =>
                 })
                 .then((user: TUser) => dispatch(setUserDataAction(user)))
                 .catch((error: AxiosError) => {
+                    if (error.response.data.errors) {
+                        const errorData = error.response.data.errors;
+                        dispatch(setSignInErrorFieldsAction(errorData.errorFields));
+                        dispatch(setSignInFieldsMessagesAction(errorData.errorMessages));
+                    }
                     dispatch(signInLoadingAction(false));
                 });
         }

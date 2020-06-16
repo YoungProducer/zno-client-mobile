@@ -41,12 +41,11 @@ export const fetchSignUpAction = (credentials: IFetchSignUpActionCredentials) =>
                     return response;
                 })
                 .catch(error => {
-                    // const errorData = error.response.data.error.data;
-
-                    // if (Object.keys(error.response.data).some(key => key === 'error')) {
-                    //     dispatch(setSignUpErrorFieldsAction(errorData.invalidFields));
-                    //     dispatch(setSignUpFieldsMessagesAction(errorData.invalidFieldsMessages));
-                    // }
+                    if (error.response.data.errors) {
+                        const errorData = error.response.data.errors;
+                        dispatch(setSignUpErrorFieldsAction(errorData.errorFields));
+                        dispatch(setSignUpFieldsMessagesAction(errorData.errorMessages));
+                    }
                     dispatch(signUpLoadingAction(false));
                 });
         }
