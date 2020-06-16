@@ -137,10 +137,12 @@ const AnswerTile = ({
                     && gived
                     && value === answer.right[answerIndex];
 
+                const currentTileGived = answer.gived[answerIndex] === value;
+
                 return (
                     <ButtonBase
                         className={classNames(classes.tile, {
-                            [classes.activeTile]: active && !gived,
+                            [classes.activeTile]: (active && !gived) || currentTileGived,
                             [classes.wrong]: wrong,
                             [classes.right]: right,
                         })}
