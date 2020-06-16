@@ -102,7 +102,7 @@ const useCarouselFields = (props: ITaskSelectionProps) => {
     const handleOnTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
         const clientX = event.touches[0].clientX;
 
-        const mouseOffsetX = (clientX - prevOffsetX) / 2;
+        const mouseOffsetX = (clientX - prevOffsetX);
         const newOffsetX = offsetX + mouseOffsetX;
 
         setPrevOffsetX(clientX);
