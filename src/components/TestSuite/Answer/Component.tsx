@@ -8,11 +8,9 @@ import React from 'react';
 
 /** Application's imports */
 import { TAnswerType } from 'api';
-
-/** Lazy loaded components */
-const Single = React.lazy(() => import('./Single'));
-const Relations = React.lazy(() => import('./Relations'));
-const Text = React.lazy(() => import('./Text'));
+import Single from './Single';
+import Relations from './Relations';
+import Text from './Text';
 
 export const markUp = ['A', 'Б', 'В', 'Г', 'Д'];
 
