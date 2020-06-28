@@ -116,7 +116,12 @@ export const selectSubjectConfigSubSubjectsThemes = createSelector(
  */
 export const selectSubjectConfigThemes = createSelector(
     selectSubjectConfig,
-    (subjectConfig) => subjectConfig && subjectConfig.themes ? subjectConfig.themes : null,
+    (subjectConfig) =>
+        subjectConfig &&
+        subjectConfig.themes &&
+        subjectConfig.themes.length !== 0
+            ? subjectConfig.themes
+            : null,
 );
 
 /**
