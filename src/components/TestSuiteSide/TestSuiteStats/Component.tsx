@@ -8,9 +8,6 @@
 
 /** External imports */
 import React, { useContext, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import IconButton from '@material-ui/core/IconButton';
-import HomeIcon from '@material-ui/icons/HomeOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
@@ -55,11 +52,7 @@ const Component = (props: TTestSuiteStatsProps) => {
         setTestSuiteFinished,
     } = props;
 
-    const history = useHistory();
-
     const { showRightDuringTest } = useContext(AdditionalAnswerPropertiesContext);
-
-    const finishTestSuiteHandler = () => setTestSuiteFinished(true);
 
     return (
         <Wrapper>
@@ -97,7 +90,10 @@ const Component = (props: TTestSuiteStatsProps) => {
                 />
             </div>
             <div className={classes.actions}>
-                <Actions finishTest={finishTestSuiteHandler}/>
+                <Actions
+                    setTestSuiteFinished={setTestSuiteFinished}
+                    finished={finished}
+                />
             </div>
         </Wrapper>
     );
