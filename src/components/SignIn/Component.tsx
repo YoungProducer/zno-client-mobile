@@ -172,6 +172,7 @@ const useSignInElements = (props: TSignInProps) => {
     }), [email, password, remember]);
 
     return {
+        handleFetchSignIn,
         emailField: {
             onChange: handleChangeEmail,
             value: email,
@@ -188,9 +189,6 @@ const useSignInElements = (props: TSignInProps) => {
             onChange: handleChangeRemember,
             value: remember,
         },
-        signInButton: {
-            onClick: handleFetchSignIn,
-        },
     };
 };
 
@@ -200,9 +198,19 @@ const Component = (props: TSignInProps) => {
     const classes = useStyles({});
 
     /** Get fields data from hook */
-    const { emailField, passwordField, rememberCheckbox, signInButton } = useSignInElements(props);
+    const {
+        emailField,
+        passwordField,
+        rememberCheckbox,
+        handleFetchSignIn,
+    } = useSignInElements(props);
 
     const { loading } = props;
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        handleFetchSignIn();
+    };
 
     return (
         <div
@@ -213,83 +221,85 @@ const Component = (props: TSignInProps) => {
                 elevation={0}
                 square
             >
-                <div className={classes.logoContainer}>
-                    <Logo />
-                </div>
-                <div className={classes.innerContainer}>
-                    <Grid
-                        container
-                        direction='column'
-                        alignItems='center'
-                        justify='flex-start'
-                        item
-                        spacing={3}
-                        className={classes.block}
-                    >
-                        <Grid item>
-                            <Input
-                                color='primary'
-                                type='email'
-                                placeholder='Емеїл'
-                                startAdornment={<EmailIcon className={classes.icon}/>}
-                                data-testid='signin-email-input'
-                                rootClassName={classes.inputRoot}
-                                {...emailField}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <Input
-                                color='primary'
-                                type='password'
-                                placeholder='Пароль'
-                                startAdornment={<LockIcon className={classes.icon}/>}
-                                data-testid='signin-password-input'
-                                rootClassName={classes.inputRoot}
-                                {...passwordField}
-                            />
-                        </Grid>
-                        <Grid item style={{
-                            width: 'inherit',
-                        }}>
-                            <Checkbox
-                                {...rememberCheckbox}
-                                label={`Запам'ятати мене`}
-                                formControl={{
-                                    className: classes.checkBox,
-                                }}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <Button
-                                color='primary'
-                                variant='contained'
-                                disableElevation
-                                className={classes.button}
-                                data-testid='signin-button'
-                                disabled={loading}
-                                { ...signInButton }
-                            >
-                                { loading
-                                    ? (<CircularProgress color='primary'/>)
-                                    : 'Увійти'
-                                }
-                            </Button>
-                        </Grid>
-                        <Grid item>
-                            <Typography align='center'>
-                                Не зареєстровані?
-                                <NavigationLink
-                                    navLink={{
-                                        to: '/auth/signup',
+                <form noValidate onSubmit={handleSubmit}>
+                    <div className={classes.logoContainer}>
+                        <Logo />
+                    </div>
+                    <div className={classes.innerContainer}>
+                        <Grid
+                            container
+                            direction='column'
+                            alignItems='center'
+                            justify='flex-start'
+                            item
+                            spacing={3}
+                            className={classes.block}
+                        >
+                            <Grid item>
+                                <Input
+                                    color='primary'
+                                    type='email'
+                                    placeholder='Емеїл'
+                                    startAdornment={<EmailIcon className={classes.icon}/>}
+                                    data-testid='signin-email-input'
+                                    rootClassName={classes.inputRoot}
+                                    {...emailField}
+                                />
+                            </Grid>
+                            <Grid item>
+                                <Input
+                                    color='primary'
+                                    type='password'
+                                    placeholder='Пароль'
+                                    startAdornment={<LockIcon className={classes.icon}/>}
+                                    data-testid='signin-password-input'
+                                    rootClassName={classes.inputRoot}
+                                    {...passwordField}
+                                />
+                            </Grid>
+                            <Grid item style={{
+                                width: 'inherit',
+                            }}>
+                                <Checkbox
+                                    {...rememberCheckbox}
+                                    label={`Запам'ятати мене`}
+                                    formControl={{
+                                        className: classes.checkBox,
                                     }}
-                                    className={classes.link}
+                                />
+                            </Grid>
+                            <Grid item>
+                                <Button
+                                    color='primary'
+                                    variant='contained'
+                                    disableElevation
+                                    className={classes.button}
+                                    data-testid='signin-button'
+                                    disabled={loading}
+                                    type='submit'
                                 >
-                                    Зареєструватися
-                                </NavigationLink>
-                            </Typography>
+                                    { loading
+                                        ? (<CircularProgress color='primary'/>)
+                                        : 'Увійти'
+                                    }
+                                </Button>
+                            </Grid>
+                            <Grid item>
+                                <Typography align='center'>
+                                    Не зареєстровані?
+                                    <NavigationLink
+                                        navLink={{
+                                            to: '/auth/signup',
+                                        }}
+                                        className={classes.link}
+                                    >
+                                        Зареєструватися
+                                    </NavigationLink>
+                                </Typography>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </div>
+                    </div>
+                </form>
             </Paper>
         </div>
     );
