@@ -124,22 +124,18 @@ const AnswerTile = ({
             {contextValue => {
                 const { showRightDuringTest } = contextValue;
 
-                const wrong =
-                    ((showRightDuringTest && gived)
-                    || finished)
-                    && (value !== answer.right[answerIndex]
-                    && value === answer.gived[answerIndex]
-                    || (finished && answer.selected[answerIndex] === ''));
-
                 const right =
-                    ((showRightDuringTest && gived)
-                    || finished)
-                    && gived
-                    && value === answer.right[answerIndex];
+                    ((showRightDuringTest && gived) || finished) &&
+                    value === answer.right[answerIndex];
 
-                const currentTileGived = answer
-                    ? answer.gived[answerIndex] === value
-                    : false;
+                const wrong =
+                    value !== answer.right[answerIndex] &&
+                    (value === answer.gived[answerIndex]
+                        || value === answer.selected[answerIndex]) &&
+                    ((showRightDuringTest && gived) || finished) &&
+                    answer.gived[answerIndex] !== answer.right[answerIndex];
+
+                const currentTileGived = answer.gived[answerIndex] === value;
 
                 return (
                     <ButtonBase
